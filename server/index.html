@@ -1,0 +1,400 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <form method="post" action="/login">
+    <input type="text" id="id1" name='email' placeholder="email">
+    <input type="text" id="id3" name='type'  placeholder="typeofLogin">
+    <input type="text" id="id2" name='password' placeholder="password">
+    <button type="submit">LOGIN</button>
+    </form>
+    <div>
+        <button onclick="location.href='http://localhost:4555/signup2';">User</button>
+    </div>
+    <div>
+        <button onclick="location.href='http://localhost:4555/signupingi';">Invigilator</button>
+    </div>
+    <div>
+        <button onclick="location.href='http://localhost:4555/signupngo';">NGO</button>
+    </div>
+    </body>
+</body>
+</html>-->
+
+
+<!DOCTYPe html>
+<html>
+	<head>
+		<title>बाल संरक्षण</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+    <base href="/">
+		<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+        <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1010; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  z-index: 1010;
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)}
+  to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+            .dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+            a{text-decoration: none;
+            color:grey;}
+        </style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a class="logo" href="index.html">बाल संरक्षण</a>
+				<nav>
+					<a href="#menu">Menu</a>
+				</nav>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="#"><b>Home</b></a></li>
+					<li><a href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><b>Login</b></a></li>
+                    <div class="dropdown">
+                        <li><a href="#" class=="dropbtn" style="text-align: inherit;"><b>Sign Up</b></a>
+                     <div class="dropdown-content">
+    <a href="http://localhost:4555/signup2">User</a>
+    <a href="http://localhost:4555/signupingi">Invigilator</a>
+    <a href="http://localhost:4555/signupngo">NGO</a>
+  </div>
+</div>
+                    </li>
+				</ul>
+			</nav>
+<div id="id01" class="modal">
+
+  <form class="modal-content animate" method="post" action="/login">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="data:image/png;base64,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" alt="Avatar" class="avatar" height="250px" width="200px">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>E-mail</b></label>
+      <input type="text" placeholder="Enter E-mail" name="email" required>
+
+      <label for="text"><b>Type</b></label>
+      <input type="text" placeholder="Choose your type as User/Invigilator/NGO" name="type" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required>
+
+      <button type="submit" style="width:80px;">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn" >Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner">
+					<h1>बाल संरक्षण</h1>
+					<p>“There can be no keener revelation of a society’s soul than the way in which it treats its children.” <br>  — Nelson Mandela</p>
+				</div>
+				<video autoplay loop muted playsinline src="https://youtu.be/cdqrvlQNJMs"></video>
+			</section>
+
+		<!-- Highlights -->
+			<section class="wrapper">
+				<div class="inner">
+					<header class="special">
+                        <h2>Child Labour and India</h2>
+						<h4>A large number of children in India are quite strangers to the joys and innocence of the formative years of their lives. Instead of enjoying their early steps on their life’s journey, they are forced to work under conditions of slavery.</h4>
+						<h5>As per an estimate, India contributes to one-third of Asia’s child labour and one-fourth of the world’s child labour. Collective efforts are needed on the part of society and the government to put an end to the practice of child labour.</h5>
+					</header>
+
+
+
+                    <br>
+                    <br>
+
+                    <section id="cta" class="wrapper">
+				<div class="inner">
+					<h2>About Portal</h2>
+					<h4>Our portal helps facilitate in better “implementation” and “enforcement” of already built policies and acts towards this cause. Website helps in: Free education accessibility, Moral polishing, Skilled and trained workers, Awareness among general public, Empowerment of poor people and Diminish the power of Child Abuse.</h4>
+				</div>
+			</section>
+                    <br>
+                    <br>
+                  <center> <h2>our leaders on child labour </h2></center>
+                    <center><p>The focus of all the great leaders in India and all over the world,since the inception of modern socities,has always been on channelizing the potential of children.</p></center>
+					</header>
+					<div class="testimonials">
+						<section>
+							<div class="content">
+								<blockquote>
+									<p>The development of a child is guaranteed in his curiosity to discover the cause behind each and every incident.</p>
+								</blockquote>
+								<div class="author">
+									<div class="image">
+										<img src="https://tse3.mm.bing.net/th?id=OIP.BUduNhul674buFP_slOD3wHaG1&pid=15.1&P=0&w=191&h=177" alt="" />
+									</div>
+									<p class="credit">- <strong>Narendra Modi</strong> <span> Prime Minister of India
+</span></p>
+								</div>
+							</div>
+						</section>
+						<section>
+							<div class="content">
+								<blockquote>
+									<p>The children of today will make the India of tomorrow. The way we bring them up will determine the future of the country. </p>
+								</blockquote>
+								<div class="author">
+									<div class="image">
+										<img src="https://tse2.mm.bing.net/th?id=OIP.2KeCpqRR0GDmX5ZmaecyvwHaJQ&pid=15.1&P=0&w=300&h=300" alt="" />
+									</div>
+									<p class="credit">- <strong>Pandit Jawaharlal Nehru</strong> <span>First Prime Minister of India</span></p>
+								</div>
+							</div>
+						</section>
+						<section>
+							<div class="content">
+								<blockquote>
+									<p>There is no greater violence than to deny the dreams of our children.Thus,causing humanity to be at stake.</p>
+								</blockquote>
+								<div class="author">
+									<div class="image">
+										<img src="https://tse4.mm.bing.net/th?id=OIP.ItvOiLqr6R1eEMu8Vm4OIwHaFj&pid=15.1&P=0&w=254&h=191" alt="" />
+									</div>
+									<p class="credit">- <strong>Kailash Satyarthi</strong> <span>2014 Nobel Peace Prize Winner</span></p>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</section>
+
+
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="content">
+						<section>
+							<h3>Ministry of Labour and Employment</h3>
+							<p>The vision of Ministry of Labour and Employment is to provide decent working conditions and improved quality of life of workers, ensuring India without child labor in hazardous sectors and enhancing employability through employment services and skill development on a sustainable basis.
+</p>
+						</section>
+						<section>
+							<h4>Postal Address</h4>
+							<ul class="alt">
+								<li><a href="#">Postal Address :
+Ministry of Labour & Employment
+Govt. of India,
+Shram Shakti Bhawan
+Rafi Marg.
+New Delhi-110001
+India</a></li>
+<li> <b>Child Helpline Number:</b>
+  <i class="fa fa-phone"></i>
+  <i class=" fa fa-phone" style="font-size:24px"></i>
+  <i class=" fa fa-phone" style="font-size:36px"></i>
+  <i class="fa fa-phone" style="font-size:48px" color:green"></i>  
+  <b>1098</b>
+</li>
+
+							</ul>
+						</section>
+						<section>
+							<h4>Contact Us</h4>
+							<ul class="plain">
+								<li><a href="https://twitter.com/labourministry?lang=en"><i class="icon fa-twitter">&nbsp;</i>Twitter</a></li>
+								<li><a href="https://www.facebook.com/LabourMinistry/"><i class="icon fa-facebook">&nbsp;</i>Facebook</a></li>
+
+							</ul>
+						</section>
+					</div>
+
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

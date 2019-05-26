@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+        
+      margin-left:30px;
+      margin-right:30px;
+
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body
+       {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #a9a9a9;
+      }
+      input
+      {
+        width: 10%;
+      }
+      .input-container {
+ /* display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 90%;
+  height: 60%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.icon {
+  padding: 10px;
+  background: #FF2424;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+
+}
+
+.input-field {
+  width: 90%;
+  padding: 10px;
+  outline: none;
+  
+}
+
+.input-field:focus {
+  border: 2px solid #FF2424;
+}
+button {
+  background-color: #FF2424;
+  color: white;
+  padding: 14px 30px;
+  margin: 8px 0;
+  border: 2px #585858;
+  cursor: pointer;
+  border-radius: 25px;
+
+}
+.topnav {
+  background-color: #333;
+}
+
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+button:hover {
+  opacity: 0.8;
+}
+.dropbtn:hover, .dropbtn:focus {
+  opacity: 0.8;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 9010;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+    </style>
+   </head>
+   <body>
+      <div class="topnav">
+          <button onclick="location.href='http://localhost:4555/';" style="float: right; width: 8%;">Logout</button>
+          <button onclick="location.href='https://goo.gl/forms/1j2SKUruI4bpXtQO2';"style="float: right; width: 8%;">FORM</button>
+          <button onclick="location.href='http://localhost:4555/video';"style="float: right; width: 8%;">Stories</button>
+          &nbsp&nbsp&nbsp&nbsp
+          <div class="dropdown">
+          <button onclick="myFunction()" title="Good Samaritan Law" class="dropbtn">FIR</button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="http://hppolice.nic.in/Citizen/OnlineComplaints.aspx">Himachal Pradesh</a>
+            <a href="http://www.delhipolice.nic.in/">Delhi</a>
+            <a href="https://jofs.jhpolice.gov.in/">Jharkhand</a>
+            <a href="https://eservices.tnpolice.gov.in/CCTNSNICSDC/ComplaintRegistrationPage?0">Tamil Nadu</a>
+            <a href="https://mumbaipolice.maharashtra.gov.in/complaint.asp">Maharashtra</a>
+            <a href="https://keralapolice.gov.in/citizenswatch/citizen.php">Kerala</a>
+            <a href="https://mppolice.gov.in/Complaints/NewComplaints.aspx">Madhya Pradesh</a>
+            <a href="http://www.biharonline.gov.in/sic/common/Call_Log.aspx?ln=en&AspxAutoDetectCookieSupport=1">Bihar</a>
+            <a href="http://haryanapoliceonline.gov.in/CitizenTips/CitizenTips.aspx?From=LFhlihlx/W49VSlBvdGc4w.">Haryana</a>
+        
+          </div>
+        </div>
+        
+        <script>
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+        </script>
+        </div>
+            
+        <div class="form">
+            
+            <form action="/user" method="POST" id="reset" class="rset" style="max-width:500px;margin:auto;">
+        <div align="center"class="input-container">
+          <i class="fa fa-user icon"></i>
+          <input class="input-field" type="number" placeholder="Enter your region's pincode" name="pincode">&nbsp<button>Update</button>
+        </div>
+      </form>
+      
+       </div>
+
+
+    <div id="map"></div>
+    <script>
+      var map, infoWindow;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 6
+        });
+        infoWindow = new google.maps.InfoWindow;
+    var geocoder =new google.maps.Geocoder();
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+        
+            };
+            geocoder.geocode(
+                    { 'latLng': pos },
+                    function( results, status ) {
+                        if ( status == google.maps.GeocoderStatus.OK && results[0] ) {
+                            infoWindow.setContent( 'Enter your Pincode <br>'+results[0].formatted_address );
+                        }
+                        else
+                          infoWindow.setContent('location found ,please zoom in to see your pincode')
+                    }
+                );
+            infoWindow.setPosition(pos);
+            
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+     
+    </script>
+    <script 
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbU9dKyzFgyR2cvxEYQ4aR-qRinSO7-wA&callback=initMap">
+    </script>
+  </body>
+</html>

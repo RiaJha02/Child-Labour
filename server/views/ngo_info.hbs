@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        table{
+            border-collapse: collapse;
+            width: 100%;
+             font-family: arial, sans-serif;
+        }
+th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+  background-color: black;
+  color: white;
+}        
+td {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color: #FFF0F0;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 100%;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2 style="text-align: center; text-shadow: 2px 2px #dddddd;">DETAILS OF VICTIM</h2>
+    <div class="card">
+    <table>
+        <tr>
+            <th>Ngo Name </th>
+            <th>School </th>
+            <th>Hospital </th>
+       
+        </tr>
+        {{#each ngo_info as |ngo_info|}}
+        <tr>
+<td>{{ngo_info.nname}}</td>
+<td>{{ngo_info.school}}</td>
+<td>{{ngo_info.hospital}}</td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+</body>
+</html>
