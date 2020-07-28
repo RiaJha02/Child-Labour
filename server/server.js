@@ -219,7 +219,7 @@ db.getAllVictim().then((victim)=>{
    })
    
 server.get('/sms',function(req,res,next){
-    const number = '919711296617'
+    const number = '+91**********'
     const text = 'Alert in your region'
 
   nexmo.message.sendSms(
