@@ -1,7 +1,7 @@
 # Child-Labour
 Portal on Child Labour
 
-The project is developed at the Grand Finale of Smart Indian hackathon 2019 under the Ministry of Labour and Employment.
+The project is developed at the Grand Finale of Smart India Hackathon 2019 under the Ministry of Labour and Employment.
 
 Problem Statement: Eradication of Child Labour Using Systems Approach
 
